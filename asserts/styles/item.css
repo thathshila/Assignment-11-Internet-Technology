@@ -1,0 +1,11 @@
+.btn-green {
+    background-color: #28a745;
+    color: white;
+}
+.btn-green:hover {
+    background-color: #218838;
+}
+.table-green th {
+    background-color: #28a745;
+    color: white;
+}

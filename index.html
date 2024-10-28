@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POS SYSTEM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="asserts/styles/home.css">
+    <link rel="stylesheet" href="asserts/styles/customer.css">
+    <link rel="stylesheet" href="asserts/styles/item.css">
+</head>
+<body>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="font-size: 25px">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="font-size: 25px">Customer</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" style="font-size: 25px">ItemStock</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" style="font-size: 25px">Orders</button>
+    </li>
+</ul>
+<div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <section class="hero-section text-center">
+        <div>
+            <h1 class="display-3">Point of Sale</h1>
+            <p class="lead">Efficient and User-Friendly POS System</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <div class="container mt-5 text-center">
+        <h2>Welcome to Point of Sale</h2>
+        <p id="date-time" class="mt-3"></p>
+    </div>
+</div>
+<div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Customer Form -->
+            <div class="col-md-6">
+                <div class="form-container">
+                    <h2 class="text-center text-success mb-4">Customer Form</h2>
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Enter first name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter last name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" placeholder="Enter address">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="mobile">Mobile Number</label>
+                                <input type="tel" class="form-control" id="mobile" placeholder="Enter mobile number">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="nic">NIC Number</label>
+                                <input type="text" class="form-control" id="nic" placeholder="Enter NIC number">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-around mt-4">
+                            <button id="customer_add_btn" type="button" class="btn btn-green">Save</button>
+                            <button id="customer_update_btn"  type="button" class="btn btn-green">Update</button>
+                            <button id="customer_delete_btn" type="button" class="btn btn-green">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Customer Table -->
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h3 class="text-center text-success mb-4">Customer List</h3>
+                <table class="table table-bordered table-striped">
+                    <thead class="thead-light">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Mobile Number</th>
+                        <th>NIC Number</th>
+                    </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                    <!-- Additional rows can be added dynamically here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Form Section -->
+            <div class="col-md-6">
+                <h2 class="text-center text-success mb-4">Item Form</h2>
+                <form>
+                    <!-- Item Name -->
+                    <div class="form-group">
+                        <label for="itemName">Item Name</label>
+                        <input type="text" class="form-control" id="itemName" placeholder="Enter item name">
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" placeholder="Enter quantity">
+                    </div>
+
+                    <!-- Unit Price -->
+                    <div class="form-group">
+                        <label for="unitPrice">Unit Price</label>
+                        <input type="number" step="0.01" class="form-control" id="unitPrice" placeholder="Enter unit price">
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" placeholder="Enter description">
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-green" id="saveBtn">Save</button>
+                        <button type="button" class="btn btn-green" id="updateBtn">Update</button>
+                        <button type="button" class="btn btn-green" id="deleteBtn">Delete</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Table Section -->
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h2 class="text-center text-success mb-4">Item List</h2>
+                <table class="table table-green table-hover">
+                    <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody id="itemTableBody">
+                    <!-- Table rows will be appended here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+
+</div>
+<script src="asserts/lib/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="controller/home.js"></script>
+<script type="module" src="controller/customerController.js"></script>
+<script type="module" src="controller/itemController.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

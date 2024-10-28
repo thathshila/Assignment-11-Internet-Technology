@@ -1,0 +1,24 @@
+.btn-green {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-green:hover {
+    background-color: #218838;
+}
+
+.form-container {
+    background-color: #f0f9f3;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+    color: #28a745;
+}
+.fade:not(.show) {
+    display: none;
+    opacity: 0;
+}
