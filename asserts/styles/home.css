@@ -1,10 +1,10 @@
 .hero-section {
-    background: url('../images/home.jpeg') center center / cover no-repeat;
+    background: url('../images/home.webp') center center / cover no-repeat;
     height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
+    color: #44fa55;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .display-3 {

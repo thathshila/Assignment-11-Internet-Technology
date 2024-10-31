@@ -1,5 +1,6 @@
-import {customer_array, itemArray} from "../db/database.js";
+import {itemArray} from "../db/database.js";
 import ItemModel from "../model/itemModel.js";
+// import {loadItems} from "./orderController.js";
 
 let selected_item_index = null;
 function loadItemTable() {
@@ -48,6 +49,7 @@ $("#saveBtn").on("click", function () {
         itemArray.push(item);
         loadItemTable();
         clearForm();
+       // loadItems();
     }
 });
 

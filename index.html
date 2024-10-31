@@ -22,6 +22,9 @@
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" style="font-size: 25px">Orders</button>
     </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact1-tab" data-bs-toggle="tab" data-bs-target="#contact1-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false" style="font-size: 25px">OrderHistory</button>
+    </li>
 </ul>
 <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     <section class="hero-section text-center">
@@ -165,13 +168,122 @@
     </div>
 </div>
 <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="p-4 border rounded bg-light">
+                    <h3 class="text-center text-success mb-4">Order Form</h3>
+
+                    <!-- Order ID and Date -->
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <label for="orderId">Order ID</label>
+                            <input type="text" class="form-control" id="orderId" readonly>
+                        </div>
+                        <div class="col">
+                            <label for="orderDate">Date</label>
+                            <input type="text" class="form-control" id="orderDate" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Customer NIC and Customer Name -->
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <label for="customerNIC">Customer NIC</label>
+                            <select class="form-control" id="customerNIC">
+                                <option value="" disabled selected>Select NIC</option>
+                                <!-- Dynamically populate options in JavaScript -->
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="customerName">Customer Name</label>
+                            <input type="text" class="form-control" id="customerName" readonly>
+                        </div>
+                    </div>
+
+                    <!-- Item Information -->
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <label for="itemName">Item Name</label>
+                            <select class="form-control" id="O_itemName">
+                                <option value="" disabled selected>Select Item</option>
+                                <!-- Dynamically populate options in JavaScript -->
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="unitPrice">Unit Price</label>
+                            <input type="text" class="form-control" id="O_unitPrice" readonly>
+                        </div>
+                        <div class="col">
+                            <label for="availableQuantity">Available Quantity</label>
+                            <input type="text" class="form-control" id="availableQuantity" readonly>
+                        </div>
+                        <div class="col">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" id="O_quantity">
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-row mb-4">
+                        <button type="button" id="addItemButton" class="btn btn-success mr-2" onclick="addToCart()">Add to Cart</button>
+                        <button type="button" class="btn btn-secondary mr-2" onclick="clearForm()">Clear</button>
+                        <button type="button" id="placeOrderButton" class="btn btn-primary" onclick="placeOrder()">Place Order</button>
+                    </div>
+
+                    <!-- Cart Table -->
+                    <table class="table table-bordered mt-4">
+                        <thead class="thead-light">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Total</th>
+                        </tr>
+                        </thead>
+                        <tbody id="cartTableBody">
+                        <!-- Rows added dynamically in JavaScript -->
+                        </tbody>
+                    </table>
+
+                    <!-- Net Balance -->
+                    <div class="text-right">
+                        <label class="font-weight-bold">Net Balance:</label>
+                        <span id="netBalance" class="text-success">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
+<div class="tab-pane fade" id="contact1-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+    <h2 class="text-center text-success mb-4">Order History</h2>
+    <!-- Table Section -->
+    <div class="col-md-6 mt-4 mt-md-0">
+        <h2 class="text-center text-success mb-4">Order History List</h2>
+        <table class="table table-green table-hover">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>OrderId</th>
+                <th>CustomerId</th>
+                <th>NetTotal</th>
+            </tr>
+            </thead>
+            <tbody id="orderHistoryTableBody">
+            <!-- Table rows will be appended here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <script src="asserts/lib/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="controller/home.js"></script>
 <script type="module" src="controller/customerController.js"></script>
 <script type="module" src="controller/itemController.js"></script>
+<script type="module" src="controller/orderController.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>

@@ -2,6 +2,8 @@ import CustomerModel from "../model/customerModel.js";
 
 import {customer_array} from "../db/database.js";
 
+// import {loadCustomers} from "./orderController.js";
+
 import {ValidateMobile,ValidateEmail} from "../util/validation.js";
 
 let selected_customer_index = null;
@@ -64,6 +66,7 @@ $("#customer_add_btn").on("click", function() {
         customer_array.push(customer);
         clear();
         loadCustomerTable();
+       // loadCustomers();
     }
 });
 
@@ -151,3 +154,4 @@ $('#customer_delete_btn').on('click', function () {
         }
     });
 });
+
